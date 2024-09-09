@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Student Registration</h1>
+	<form th:action="@{/ShowData}">
+		<label for="name">Name</label><br>
+		<input type="text" id="name" name="name" placeholder="Enter name"><br>
+		<label for="age">Age</label><br>
+		<input type="number" id="age" name="age" placeholder="Enter age"><br><br>
+		<input type="submit">
+	</form>
+	<br><br>
+	<table border="1">
+		<tr>
+			<th>Student Name</th>
+			<th>Student Age</th>
+		</tr>
+		<tr th:each = "StudentData : ${list}">
+			<td th:text="${StudentData.name}"></td>
+			<td th:text="${StudentData.age}"></td>
+		</tr>
+	</table>
+</body>
+</html>
