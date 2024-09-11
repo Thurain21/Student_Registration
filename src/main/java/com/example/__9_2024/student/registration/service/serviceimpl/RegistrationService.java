@@ -12,14 +12,15 @@ public class RegistrationService implements Service{
 	
 	@Override
 	public ArrayList<StudentData> insertData(StudentData sd) {
+		sd.setId(String.valueOf(datalist.size()));
 		datalist.add(sd);
 		return datalist;
 	}
 
 	@Override
-	public StudentData readData(StudentData sd) {
-		// TODO Auto-generated method stub
-		return null;
+	public int DeleteData(String id) {
+		StudentData sd = datalist.remove(Integer.parseInt(id));
+		return sd.getId().equals(id)?1:0;
 	}
-
+	
 }

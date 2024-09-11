@@ -4,8 +4,9 @@ public class StudentData {
 
 	private String name;
 	private String age;
+	private String id;
 	
-	public StudentData(String name, String age) {
+	public StudentData(String name, String age,String id) {
 		this.name=name;
 		this.age=age;
 	}
@@ -24,6 +25,14 @@ public class StudentData {
 
 	public void setAge(String age) {
 		this.age = age;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 }
