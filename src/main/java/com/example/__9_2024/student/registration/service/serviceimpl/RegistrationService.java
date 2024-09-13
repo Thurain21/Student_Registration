@@ -18,9 +18,21 @@ public class RegistrationService implements Service{
 	}
 
 	@Override
-	public int DeleteData(String id) {
-		StudentData sd = datalist.remove(Integer.parseInt(id));
-		return sd.getId().equals(id)?1:0;
+	public ArrayList<StudentData> DeleteData(String id) {
+		datalist.remove(Integer.parseInt(id));
+		return datalist;
+	}
+
+	@Override
+	public StudentData transferUpdateData(String id) {
+		StudentData sd = datalist.get(Integer.parseInt(id));
+		return sd;
+	}
+
+	@Override
+	public ArrayList<StudentData> changedData(StudentData sd) {
+		datalist.set(Integer.parseInt(sd.getId()), sd);
+		return datalist;
 	}
 	
 }

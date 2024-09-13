@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Update Form</h1>
+	<form th:action="@{/dataChanges}" method="get">
+		<input type="hidden" name="id" th:value="${sd.id}" >
+		<label for="name">New Name</label><br>
+		<input type="text" id="name" name="name" placeholder="enter new name" th:value="${sd.name}"><br>
+		<label for="age" >New Age</label><br>
+		<input type="number" id="age" name="age" placeholder="enter new age" th:value="${sd.age}"><br><br>
+		<input type="submit">
+	</form>
+</body>
+</html>

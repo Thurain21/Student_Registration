@@ -23,9 +23,8 @@
 			<td th:text="${StudentData.name}"></td>
 			<td th:text="${StudentData.age}"></td>
 			<td><a th:href="@{/delete/{id}(id=${StudentData.id})}">Delete</a></td>
+			<td><a th:href="@{/update/{id}(id=${StudentData.id})}">Update</a></td>
 		</tr>
 	</table>
-	<h3 th:if=${result==1}>DELETE SUCCESS!</h3>
-	<h3 th:if=${result==0}>DELETE FAIL!</h3>
 </body>
 </html>

@@ -30,10 +30,28 @@ public class StudentController {
 	
 	@RequestMapping(value="/delete/{id}",method=RequestMethod.GET)
 	public ModelAndView deleteData(@PathVariable(name="id")String id) {
-		int result = sci.DeleteData(id);
+		ArrayList<StudentData> datalist = sci.DeleteData(id);
 		ModelAndView obj = new ModelAndView();
-		obj.addObject("result",result);
+		obj.addObject("list",datalist);
 		obj.setViewName("studentregister");
 		return obj;			
+	}
+	
+	@RequestMapping(value="/update/{id}",method=RequestMethod.GET)
+	public ModelAndView updateData(@PathVariable(name="id")String id) {
+		StudentData sd = sci.transferUpdateData(id);
+		ModelAndView obj = new ModelAndView();
+		obj.addObject("sd",sd);
+		obj.setViewName("updateForm");
+		return obj;
+	}
+	
+	@RequestMapping(value="/dataChanges",method = RequestMethod.GET)
+	public ModelAndView dataChanges(@ModelAttribute StudentData sd) {
+		ArrayList<StudentData> datalist = sci.changedData(sd);
+		ModelAndView obj = new ModelAndView();
+		obj.addObject("list",datalist);
+		obj.setViewName("studentregister");
+		return obj;
 	}
 }
